@@ -17,7 +17,8 @@ describe('Navigation Menu', () => {
         const actualLinks = [];
 
         // Get the text of the navigation menu
-        const navLinks = await $('#zak-primary-menu').$$('li[id*=menu]');
+        //const navLinks = await $('#zak-primary-menu').$$('li[id*=menu]');
+        const navLinks = await $$('#zak-primary-menu li[id*=menu]');
 
         for ( const link of navLinks ) {
             actualLinks.push(await link.getText());
