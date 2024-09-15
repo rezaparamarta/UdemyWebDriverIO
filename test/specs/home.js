@@ -31,4 +31,33 @@ describe('Home', () => {
         // Assert URL contains 'get-started'
         assert.ok(currentUrl.includes('#get-started'), 'URL does not contain #get-started');
     });
+
+    it('Click logo and assert URL does not contain get-started text', async () => { 
+        // Open Home Page
+        await browser.url('https://practice.sdetunicorns.com');
+
+        // Click logo
+        await $('//img[@alt="Practice E-Commerce Site"]').click();
+
+        // Get the current URL
+        const currentUrl = await browser.getUrl();
+
+        // Assert that the URL does not contain 'get-started'
+        assert.ok(!currentUrl.includes('#get-started'), 'URL contains #get-started');
+    });
+
+    it('Find heading element & assert the text', async () => { 
+        // Open Home Page
+        await browser.url('https://practice.sdetunicorns.com');
+
+        // find heading element
+        const headingEl = await $('.elementor-widget-container h1');
+
+        // get the text of the heading element
+        const headingText = await headingEl.getText();
+
+        // assert the text of the heading element
+        await expect(headingText).toEqual('Think different. Make different.');
+        await browser.pause(3000);
+    });
 });
