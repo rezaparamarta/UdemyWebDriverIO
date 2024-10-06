@@ -51,5 +51,4 @@ describe('Upload Page', () => {
         
         await browser.pause(3000);
     });
-    
 });

@@ -28,7 +28,7 @@ describe('Navigation Menu', () => {
         await expect(expectedLinks).toEqual(actualLinks);
     });
 
-    it.only('Get the text of the navigation menu and using wait commands', async () => { 
+    it('Get the text of the navigation menu and using wait commands', async () => { 
         // Open home page
         await browser.url('/');
 
