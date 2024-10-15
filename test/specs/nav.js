@@ -1,7 +1,10 @@
+import HomePage from "../pages/home-page";
+
 describe('Navigation Menu', () => {
     it('Get the text of the navigation menu', async () => { 
         // Open home page
-        await browser.url('/');
+        //await browser.url('/');
+        await HomePage.open();
 
 
         const expectedLinks = [
@@ -18,7 +21,7 @@ describe('Navigation Menu', () => {
 
         // Get the text of the navigation menu
         //const navLinks = await $('#zak-primary-menu').$$('li[id*=menu]');
-        const navLinks = await $$('#zak-primary-menu li[id*=menu]');
+        const navLinks = await HomePage.NavComponent.linksNavMenu;
 
         for ( const link of navLinks ) {
             actualLinks.push(await link.getText());
@@ -30,7 +33,8 @@ describe('Navigation Menu', () => {
 
     it('Get the text of the navigation menu and using wait commands', async () => { 
         // Open home page
-        await browser.url('/');
+        //await browser.url('/');
+        await HomePage.open();
 
 
         const expectedLinks = [
@@ -49,13 +53,13 @@ describe('Navigation Menu', () => {
 
         // wait until the Home text is displayed on the page
         await browser.waitUntil(async function() {
-            const homeText = await $('#zak-primary-menu li').getText();
+            const homeText = await HomePage.NavComponent.firstNavMenuList.getText();
             return homeText === 'Home';
         });
 
         // Get the text of the navigation menu
         //const navLinks = await $('#zak-primary-menu').$$('li[id*=menu]');
-        const navLinks = await $$('#zak-primary-menu li[id*=menu]');
+        const navLinks = await HomePage.NavComponent.linksNavMenu;
 
         for ( const link of navLinks ) {
             actualLinks.push(await link.getText());
