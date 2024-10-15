@@ -3,6 +3,8 @@ describe('Contact Page', () => {
         // Open home page
         await browser.url('/contact');
 
+        
+
         // Fill out the input fields
         await $('.contact-name input').setValue('John Doe');
         await $('.contact-email input').setValue('john.doe@example.com');
