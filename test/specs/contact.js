@@ -9,6 +9,10 @@ describe('Contact Page', () => {
         await $('.contact-phone input').setValue('08234152723');
         await $('.contact-message textarea').setValue('Hello, I am a customer!');
 
+        //console.log(await $('button[type=submt]'));
+        // debug
+        //await browser.debug();
+
         // Click the submit button  
         await $('button[type=submit]').click();
 
